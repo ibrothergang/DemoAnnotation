@@ -82,12 +82,13 @@ public class ClickAnnotationProcessor extends AbstractProcessor {
             String packageName = packageElement.getQualifiedName().toString();
             String methodName = executableElement.getSimpleName().toString();
             int viewId = executableElement.getAnnotation(ClickAnnotation.class).value();
+            String strToast = executableElement.getAnnotation(ClickAnnotation.class).toast();
 
             print("fullClassName: "+ fullClassName +
                     ",  methodName: "+methodName +
                     ",  viewId: "+viewId);
 
-            ClickMethod clickMethod = new ClickMethod(viewId,methodName,getMethodParameterTypes(executableElement));
+            ClickMethod clickMethod = new ClickMethod(viewId, strToast, methodName, getMethodParameterTypes(executableElement));
 
             ProxyInfo proxyInfo = proxyMap.get(fullClassName);
             if (proxyInfo != null) {

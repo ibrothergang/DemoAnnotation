@@ -23,13 +23,13 @@ public class MainActivity extends AppCompatActivity {
         text = (TextView) findViewById(R.id.textView);
     }
 
-    @ClickAnnotation(R.id.btn)
+    @ClickAnnotation(value=R.id.btn, toast="点击事件")
     public void once() {
         //点击事件
         Log.d("tag", "onceMe:" + System.currentTimeMillis());
     }
 
-    @ClickAnnotation(R.id.btn2)
+    @ClickAnnotation(value=R.id.btn2, toast="测试")
     public void onceMe(View v) {
         ((Button) v).setText("click");
         Log.d("tag", "onceMe");

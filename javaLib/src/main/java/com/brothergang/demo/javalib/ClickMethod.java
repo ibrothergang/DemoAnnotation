@@ -8,11 +8,13 @@ import java.util.List;
 
 public class ClickMethod {
     private int id;
+    private String strToast;
     private String methodName;
     private List<String> methodParameters;
 
-    ClickMethod(int id, String methodName, List<String> methodParameters) {
+    ClickMethod(int id, String toast, String methodName, List<String> methodParameters) {
         this.id = id;
+        this.strToast = toast;
         this.methodName = methodName;
         this.methodParameters = methodParameters;
     }
@@ -23,6 +25,10 @@ public class ClickMethod {
 
     int getId() {
         return this.id;
+    }
+
+    String getToast(){
+        return strToast;
     }
 
     String getMethodName() {

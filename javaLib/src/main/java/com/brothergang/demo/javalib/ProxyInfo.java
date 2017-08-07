@@ -61,9 +61,12 @@ public class ProxyInfo {
         for(Iterator var2 = this.getMethods().iterator(); var2.hasNext(); builder.append("\n}").append("    }\n").append("        });\n}")) {
             ClickMethod method = (ClickMethod)var2.next();
             builder.append("    view = ").append("finder.findViewById(source, ").append(method.getId()).append(");\n");
-            builder.append("if(view != null){").append("view.setOnClickListener(new View.OnClickListener() {\n").append("long time = 0L;");
+            builder.append("if(view != null){");
+            builder.append("final String toast = \"").append(method.getToast()).append("\";\n");
+            builder.append("view.setOnClickListener(new View.OnClickListener() {\n").append("long time = 0L;");
             builder.append("@Override\n").append("public void onClick(View v) {");
             builder.append("Log.d(\"generateInjectMethod\", \"=== Clicked ===\");\n");
+            builder.append("Toast.makeText(v.getContext(), \"执行了通过注解显示toast：\" + toast, Toast.LENGTH_SHORT).show();\n");
             builder.append("long temp = System.currentTimeMillis();\n").append("if (temp - time >= intervalTime) {\ntime = temp;\n");
             if(method.getMethodParametersSize() == 1) {
                 if(!((String)method.getMethodParameters().get(0)).equals("android.view.View")) {
