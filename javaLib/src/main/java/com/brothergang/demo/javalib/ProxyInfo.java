@@ -57,6 +57,7 @@ public class ProxyInfo {
         builder.append("  @Override ").append("public void setIntervalTime(long time) {\n").append("intervalTime = time;\n     } \n");
         builder.append("  @Override ").append("public void inject(final Finder finder, final T target, Object source) {\n");
         builder.append("View view;");
+        
 
         for(Iterator var2 = this.getMethods().iterator(); var2.hasNext(); builder.append("\n}").append("    }\n").append("        });\n}")) {
             ClickMethod method = (ClickMethod)var2.next();
