@@ -1,0 +1,1 @@
+include ':app', ':javaLib', ':module-click'
