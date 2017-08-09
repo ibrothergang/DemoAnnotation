@@ -66,7 +66,7 @@ public class ProxyInfo {
             builder.append("view.setOnClickListener(new View.OnClickListener() {\n").append("long time = 0L;");
             builder.append("@Override\n").append("public void onClick(View v) {");
             builder.append("Log.d(\"generateInjectMethod\", \"=== Clicked ===\");\n");
-            builder.append("Toast.makeText(v.getContext(), \"执行了通过注解显示toast：\" + toast, Toast.LENGTH_SHORT).show();\n");
+            builder.append("Toast.makeText(v.getContext(), \"注解成功：\" + toast, Toast.LENGTH_SHORT).show();\n");
             builder.append("long temp = System.currentTimeMillis();\n").append("if (temp - time >= intervalTime) {\ntime = temp;\n");
             if(method.getMethodParametersSize() == 1) {
                 if(!((String)method.getMethodParameters().get(0)).equals("android.view.View")) {

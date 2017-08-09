@@ -13,6 +13,6 @@ import java.lang.annotation.Target;
 @Retention(RetentionPolicy.CLASS)
 @Target({ElementType.METHOD})
 public @interface ClickAnnotation {
-    int value();
+    int id();
     String toast();
 }

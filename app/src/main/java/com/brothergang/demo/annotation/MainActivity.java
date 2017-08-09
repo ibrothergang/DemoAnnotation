@@ -1,37 +1,31 @@
 package com.brothergang.demo.annotation;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.TextView;
 
 import com.brothergang.demo.javalib.ClickAnnotation;
-import com.brothergang.demo.module.click.OnceInit;
+import com.brothergang.demo.module.click.AnnotationMgr;
 
 public class MainActivity extends AppCompatActivity {
-
-    private TextView text;
+    private static final String TAG = MainActivity.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //类似于ButterKnife的Bind方法。初始化OnceClick
-        OnceInit.once(this);
-        text = (TextView) findViewById(R.id.textView);
+        //类似于ButterKnife的Bind方法。
+        AnnotationMgr.init(this);
     }
 
-    @ClickAnnotation(value=R.id.btn, toast="点击事件")
-    public void once() {
-        //点击事件
-        Log.d("tag", "onceMe:" + System.currentTimeMillis());
+    @ClickAnnotation(id=R.id.btn, toast="点击事件")
+    public void buttonClick01() {
+        Log.d(TAG, "buttonClick01");
     }
 
-    @ClickAnnotation(value=R.id.btn2, toast="测试")
-    public void onceMe(View v) {
-        ((Button) v).setText("click");
-        Log.d("tag", "onceMe");
+    @ClickAnnotation(id=R.id.btn2, toast="测试")
+    public void buttonClick02(View v) {
+        Log.d(TAG, "buttonClick02");
     }
 }

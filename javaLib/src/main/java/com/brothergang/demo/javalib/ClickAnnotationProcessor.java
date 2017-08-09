@@ -44,6 +44,14 @@ public class ClickAnnotationProcessor extends AbstractProcessor {
         elementUtils = processingEnv.getElementUtils();
     }
 
+    /**
+     * 所有的注解处理都是从这个方法开始的，
+     * 你可以理解为，当 APT 找到所有需要处理的注解后，会回调这个方法，
+     * 你可以通过这个方法的参数，拿到你所需要的信息。
+     * @param annotations
+     * @param roundEnv
+     * @return
+     */
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         Messager messager = processingEnv.getMessager();
@@ -59,6 +67,10 @@ public class ClickAnnotationProcessor extends AbstractProcessor {
         return true;
     }
 
+    /**
+     * 通过重写该方法，告知 processor 哪些注解需要处理
+     * @return
+     */
     @Override
     public Set<String> getSupportedAnnotationTypes() {
         Set<String> types = new LinkedHashSet<>();
@@ -81,7 +93,7 @@ public class ClickAnnotationProcessor extends AbstractProcessor {
             String className = classElement.getSimpleName().toString();
             String packageName = packageElement.getQualifiedName().toString();
             String methodName = executableElement.getSimpleName().toString();
-            int viewId = executableElement.getAnnotation(ClickAnnotation.class).value();
+            int viewId = executableElement.getAnnotation(ClickAnnotation.class).id();
             String strToast = executableElement.getAnnotation(ClickAnnotation.class).toast();
 
             print("fullClassName: "+ fullClassName +

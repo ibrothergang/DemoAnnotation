@@ -9,29 +9,17 @@ import com.brothergang.demo.javalib.ProxyInfo;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
-public class OnceInit {
+public class AnnotationMgr {
     private static final Map<Class<?>, AbstractInjector<Object>> INJECTORS = new LinkedHashMap<Class<?>, AbstractInjector<Object>>();
 
-    private static final long INTERVAL_TIME = 2000;
-
-    public static void once(Activity activity, long intervalTime) {
+    public static void init(Activity activity) {
         AbstractInjector<Object> injector = findInjector(activity);
         injector.inject(Finder.ACTIVITY, activity, activity);
-        injector.setIntervalTime(intervalTime);
     }
 
-    public static void once(View view, long intervalTime) {
+    public static void init(View view) {
         AbstractInjector<Object> injector = findInjector(view);
         injector.inject(Finder.VIEW, view, view);
-        injector.setIntervalTime(intervalTime);
-    }
-
-    public static void once(Activity activity) {
-        once(activity, INTERVAL_TIME);
-    }
-
-    public static void once(View view) {
-        once(view, INTERVAL_TIME);
     }
 
     private static AbstractInjector<Object> findInjector(Object activity) {
