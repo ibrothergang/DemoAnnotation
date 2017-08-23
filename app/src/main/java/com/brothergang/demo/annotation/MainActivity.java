@@ -17,7 +17,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         //类似于ButterKnife的Bind方法。
         AnnotationMgr.init(this);
-        
     }
 
     @ClickAnnotation(id=R.id.btn, toast="点击了第一个按钮")
