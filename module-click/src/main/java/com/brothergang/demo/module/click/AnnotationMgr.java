@@ -29,8 +29,7 @@ public class AnnotationMgr {
             try {
                 Class injectorClazz = Class.forName(clazz.getName() + "$$"
                         + ProxyInfo.PROXY);
-                injector = (AbstractInjector<Object>) injectorClazz
-                        .newInstance();
+                injector = (AbstractInjector<Object>) injectorClazz.newInstance();
                 INJECTORS.put(clazz, injector);
             } catch (Exception e) {
                 e.printStackTrace();

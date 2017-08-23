@@ -51,20 +51,16 @@ RUNTIME
 **@interface 表示申明注解用的**
 
 先来看段代码
-
 ![MainActivity](http://upload-images.jianshu.io/upload_images/2159159-0eb55a77e183371d.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 看看这段代码运行结果
-
-![运行结果](http://upload-images.jianshu.io/upload_images/2159159-c3a98fb212b52682.gif?imageMogr2/auto-orient/strip)
+![运行结果](http://upload-images.jianshu.io/upload_images/2159159-6c6ba78a158220af.gif?imageMogr2/auto-orient/strip)
 
 看看注解做了什么事情:
-
-![生成的文件目录](http://upload-images.jianshu.io/upload_images/2159159-eab9d73c11eb617a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![生成的类](http://upload-images.jianshu.io/upload_images/2159159-0e3d5878a8252055.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 具体生成的代码：
 ![生成的代码](http://upload-images.jianshu.io/upload_images/2159159-05920c523c77edc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
 
 注解类：
 ![注解类](http://upload-images.jianshu.io/upload_images/2159159-1196304705f9a309.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-

@@ -48,8 +48,8 @@ public class ClickAnnotationProcessor extends AbstractProcessor {
      * 所有的注解处理都是从这个方法开始的，
      * 你可以理解为，当 APT 找到所有需要处理的注解后，会回调这个方法，
      * 你可以通过这个方法的参数，拿到你所需要的信息。
-     * @param annotations
-     * @param roundEnv
+     * @param annotations 获取此注解处理器索要处理的注解集合
+     * @param roundEnv 访问到当前这个 Round 中的语法树节点，每个语法树节点在这里表示成一个 Element
      * @return
      */
     @Override
@@ -80,6 +80,7 @@ public class ClickAnnotationProcessor extends AbstractProcessor {
 
     private Map<String, ProxyInfo> getProxyMap(RoundEnvironment roundEnv) {
         Map<String, ProxyInfo> proxyMap = new HashMap<>();
+        //遍历每一个语法树节点
         for (Element element : roundEnv.getElementsAnnotatedWith(ClickAnnotation.class)) {
             //target相同只能强转。不同使用getEnclosingElement
             ExecutableElement executableElement = (ExecutableElement) element;

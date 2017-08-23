@@ -19,12 +19,12 @@ public class MainActivity extends AppCompatActivity {
         AnnotationMgr.init(this);
     }
 
-    @ClickAnnotation(id=R.id.btn, toast="点击事件")
+    @ClickAnnotation(id=R.id.btn, toast="点击了第一个按钮")
     public void buttonClick01() {
         Log.d(TAG, "buttonClick01");
     }
 
-    @ClickAnnotation(id=R.id.btn2, toast="测试")
+    @ClickAnnotation(id=R.id.btn2, toast="点击了第二个按钮")
     public void buttonClick02(View v) {
         Log.d(TAG, "buttonClick02");
     }
